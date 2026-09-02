@@ -1,0 +1,375 @@
+# ☕ 100 Days of Java — Day 01
+
+## 🚀 Java Introduction & Core Concepts
+
+Welcome to **Day 1 of my 100 Days Java Learning Journey!**
+
+Today I started with the absolute fundamentals of Java.
+
+### 🎯 Day 1 Goals
+
+By the end of Day 1, I learned:
+
+* What is Java?
+* History of Java
+* Features of Java
+* What is a Class?
+* What is an Object?
+* What is JVM?
+* Why is Java Platform Independent?
+* What is WORA?
+* Why is Java popular?
+* Basic Java program structure
+
+---
+
+# 1. What is Java?
+
+Java is a **high-level, object-oriented, class-based programming language**.
+
+Java was developed at **Sun Microsystems** and created by **James Gosling and his team**.
+
+Java was first publicly released in **1995**.
+
+One of Java's important principles is:
+
+> **Write Once, Run Anywhere (WORA)**
+
+Java programs run on the **JVM (Java Virtual Machine)**.
+
+### Simple Definition
+
+Java is a programming language used to build:
+
+* 🌐 Web Applications
+* 🏢 Enterprise Applications
+* 🔌 Backend Systems
+* 🔗 REST APIs
+* ☁️ Cloud Applications
+* 💳 Banking & Financial Systems
+* 🔄 Microservices
+* 📱 Android applications and existing Android ecosystems
+* 🤖 Applications integrating AI technologies
+
+---
+
+# 2. History of Java
+
+Some important milestones:
+
+| Year | Event                            |
+| ---- | -------------------------------- |
+| 1991 | Java project started as **Oak**  |
+| 1995 | Java was officially introduced   |
+| 2010 | Oracle acquired Sun Microsystems |
+
+### 👨‍💻 Father of Java
+
+**James Gosling** is widely known as the **Father of Java**.
+
+### 💡 Interview Point
+
+Java was originally called:
+
+> **Oak**
+
+---
+
+# 3. Important Features of Java
+
+Java has several important features:
+
+* ✅ Simple
+* ✅ Object-Oriented
+* ✅ Platform Independent
+* ✅ Portable
+* ✅ Secure
+* ✅ Robust
+* ✅ Multithreaded
+* ✅ High Performance
+* ✅ Distributed
+* ✅ Dynamic
+* ✅ Architecture Neutral
+* ✅ Automatic Garbage Collection
+
+### ⭐ Important Interview Features
+
+The most commonly discussed features include:
+
+**Platform Independent + Object-Oriented + Secure + Robust + Multithreaded**
+
+---
+
+# 4. What is a Class?
+
+A **class is a blueprint or template used to create objects.**
+
+### Example
+
+```java
+class Student {
+
+    int id;
+    String name;
+
+    void study() {
+        System.out.println("Student is studying");
+    }
+}
+```
+
+Here:
+
+| Code         | Meaning           |
+| ------------ | ----------------- |
+| `Student`    | Class             |
+| `id`, `name` | Data / State      |
+| `study()`    | Behavior / Method |
+
+### 🏠 Easy Example
+
+Think of:
+
+**Class = Blueprint of a House**
+
+**Object = Actual House**
+
+A blueprint describes how the house should be built, while the actual house is the object created from that blueprint.
+
+---
+
+# 5. What is an Object?
+
+An **object is a runtime instance of a class.**
+
+### Example
+
+```java
+class Student {
+
+    int id;
+    String name;
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+
+        s1.id = 101;
+        s1.name = "Srikanth";
+
+        System.out.println(s1.id);
+        System.out.println(s1.name);
+    }
+}
+```
+
+### Understanding the Code
+
+```java
+Student s1 = new Student();
+```
+
+* `Student` → Class
+* `s1` → Reference variable
+* `new Student()` → Creates an object
+* `101` → Student ID
+* `"Srikanth"` → Student name
+
+---
+
+# 6. Why is Java Popular?
+
+Java is widely used in many areas of software development.
+
+### Common Applications
+
+* 🏢 Enterprise Applications
+* 🌐 Web Applications
+* 🔌 REST APIs
+* ☁️ Cloud Applications
+* 💳 Banking & Financial Systems
+* 🛒 E-commerce Applications
+* 🔐 Secure Backend Systems
+* 🔄 Microservices
+* 🤖 AI Integrations
+* 📱 Android Development and existing ecosystems
+
+### ☕ Java + Spring Boot
+
+**Java + Spring Boot** is especially important for modern backend and enterprise development.
+
+---
+
+# 7. Day 1 Coding Practice
+
+## Employee Example
+
+```java
+class Employee {
+
+    int id;
+    String name;
+    double salary;
+
+    void display() {
+
+        System.out.println(id);
+        System.out.println(name);
+        System.out.println(salary);
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Employee e1 = new Employee();
+
+        e1.id = 101;
+        e1.name = "Rahul";
+        e1.salary = 45000;
+
+        e1.display();
+    }
+}
+```
+
+### Expected Output
+
+```text
+101
+Rahul
+45000.0
+```
+
+---
+
+# 🧑‍💻 Your Day 1 Challenge
+
+Create a `Student` class containing:
+
+* `id`
+* `name`
+* `course`
+* `fees`
+
+Create **2 Student objects** and display their details.
+
+### Example Structure
+
+```java
+class Student {
+
+    int id;
+    String name;
+    String course;
+    double fees;
+
+    void display() {
+        // Display student details
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        // Create Student object 1
+
+        // Assign details
+
+        // Display details
+
+
+        // Create Student object 2
+
+        // Assign details
+
+        // Display details
+    }
+}
+```
+
+---
+
+# 🎯 Day 1 Interview Questions
+
+I practiced the following questions:
+
+1. What is Java?
+2. Who developed Java?
+3. Who is the Father of Java?
+4. When was Java introduced?
+5. What was Java originally called?
+6. Why is Java platform independent?
+7. What is WORA?
+8. What are the features of Java?
+9. What is a class?
+10. What is an object?
+11. What is the difference between a class and an object?
+12. What is JVM?
+13. What is the difference between Java and JVM?
+14. Why is Java called an object-oriented language?
+15. What is the purpose of the `new` keyword?
+
+---
+
+# 🧠 Day 1 Quick Revision
+
+Remember this flow:
+
+```text
+Java
+  ↓
+Class
+  ↓
+Object
+  ↓
+JVM
+  ↓
+Platform Independence
+```
+
+### 🔥 My Learning Formula
+
+> **Learn → Understand → Code → Practice → Explain → Apply**
+
+I don't want to just memorize Java definitions.
+
+I want to **understand the concept, write the code, practice it, and explain it in my own words.**
+
+---
+
+# 📊 Progress
+
+**Day 1 / 100 ✅ Completed**
+
+```text
+Java Beginner
+      ↓
+   Day 1/100
+      ↓
+Java Full Stack Developer
+```
+
+### ⏭️ Tomorrow
+
+**Day 2 — JDK, JRE & JVM + Java Program Execution Flow**
+
+---
+
+## ⭐ Follow My 100 Days Java Journey
+
+I will be documenting my Java learning journey here for the next **100 days**, including:
+
+* 📚 Concepts
+* 💻 Coding Practice
+* 🧩 Challenges
+* 🎯 Interview Questions
+* 📝 Notes
+* 🚀 Projects
+
+**Day 1/100 — Let's Begin! ☕🔥**
