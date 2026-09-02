@@ -21,7 +21,7 @@ public class Test {
         
         // Assign details
         obj1.id = 101;
-        obj1.name = "Rahul Sharma";
+        obj1.name = "Nagarjuna";
         obj1.course = "Java Full Stack";
         obj1.fees = 45000.0;
         
@@ -33,7 +33,7 @@ public class Test {
         
         // Assign details
         obj2.id = 102;
-        obj2.name = "Priya Patel";
+        obj2.name = "Gopi";
         obj2.course = "Data Science";
         obj2.fees = 55000.0;
         
