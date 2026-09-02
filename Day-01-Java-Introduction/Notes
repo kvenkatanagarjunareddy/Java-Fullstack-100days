@@ -158,7 +158,7 @@ public class Test {
         Student s1 = new Student();
 
         s1.id = 101;
-        s1.name = "Srikanth";
+        s1.name = "Nagarjuna";
 
         System.out.println(s1.id);
         System.out.println(s1.name);
@@ -229,7 +229,7 @@ public class Test {
         Employee e1 = new Employee();
 
         e1.id = 101;
-        e1.name = "Rahul";
+        e1.name = "Nagarjuna";
         e1.salary = 45000;
 
         e1.display();
