@@ -1,0 +1,1144 @@
+# ☕ 100 Days of Java — Day 04
+
+# 🚀 Java Program Structure, `main()` Method & Execution Flow
+
+Welcome to **Day 4 of my 100 Days Java Learning Journey!**
+
+Today, I learned how a Java program is structured, where Java execution starts, and how Java source code is converted into bytecode and executed by the JVM.
+
+---
+
+## 🎯 Today's Goals
+
+By the end of Day 4, I should clearly understand:
+
+* Basic structure of a Java program
+* What each part of a Java program means
+* What is a class?
+* What is the `main()` method?
+* Why is `main()` important?
+* Meaning of `public static void main(String[] args)`
+* How Java program execution starts
+* What happens during compilation?
+* What happens during execution?
+* Difference between source code, bytecode and machine code
+* How JVM executes a Java program
+
+---
+
+# 1️⃣ Basic Java Program
+
+Let's start with the simplest Java program:
+
+```java
+class HelloWorld {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+    }
+}
+```
+
+At first, this may look like a lot of syntax.
+
+Don't worry.
+
+Let's understand every part step by step.
+
+---
+
+# 2️⃣ Understanding Java Program Structure
+
+```java
+class HelloWorld {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+    }
+}
+```
+
+There are three important parts:
+
+```text
+Class
+  ↓
+main() Method
+  ↓
+Statements
+```
+
+Conceptually:
+
+```text
+Java Program
+     ↓
+   Class
+     ↓
+  main()
+     ↓
+ Statements
+```
+
+A Java program is commonly organized using **classes**.
+
+---
+
+# 3️⃣ What is a Class?
+
+A **class is a blueprint or template used to define the structure and behavior of objects.**
+
+Example:
+
+```java
+class Student {
+
+}
+```
+
+Here:
+
+```text
+Student → Class Name
+```
+
+A class can contain:
+
+* Variables
+* Methods
+* Constructors
+* Blocks
+* Nested Classes
+* Nested Interfaces
+
+For now, remember:
+
+> A Java program is commonly organized using classes.
+
+---
+
+# 4️⃣ Class Naming
+
+Example:
+
+```java
+class Student {
+
+}
+```
+
+Here:
+
+```text
+class   → Java keyword
+Student → Class name
+```
+
+### Java Naming Convention
+
+Class names normally follow **PascalCase**.
+
+Examples:
+
+```text
+Student
+Employee
+BankAccount
+ProductDetails
+CustomerService
+```
+
+Avoid names like:
+
+```text
+student
+employee_details
+studentclass
+```
+
+for normal class naming conventions.
+
+---
+
+# 5️⃣ What is the `main()` Method?
+
+The `main()` method is the **entry point used by the JVM to start execution of a conventional standalone Java application.**
+
+Example:
+
+```java
+public static void main(String[] args) {
+
+}
+```
+
+When we run a Java application, the JVM looks for a compatible `main()` method.
+
+Conceptually:
+
+```text
+Run Java Program
+       ↓
+      JVM
+       ↓
+   Finds main()
+       ↓
+ Execution Starts
+```
+
+### Important
+
+The JVM does **not** simply execute every statement in a class from top to bottom.
+
+For a standard standalone Java application, execution begins through the `main()` entry point.
+
+---
+
+# 6️⃣ Understanding `public static void main(String[] args)`
+
+This line is extremely important:
+
+```java
+public static void main(String[] args)
+```
+
+Let's break it down:
+
+```text
+public
+   ↓
+static
+   ↓
+void
+   ↓
+main
+   ↓
+String[] args
+```
+
+---
+
+# 7️⃣ What is `public`?
+
+`public` is an **access modifier**.
+
+It means the method is accessible from outside the class.
+
+For the conventional JVM application entry point, the `main()` method is declared `public`.
+
+Example:
+
+```java
+public static void main(String[] args) {
+
+}
+```
+
+### Interview Point
+
+> `public` allows the JVM to access the conventional application entry point from outside the class.
+
+---
+
+# 8️⃣ What is `static`?
+
+`static` means the method belongs to the **class rather than requiring an object instance**.
+
+Because `main()` is static, the JVM can invoke it without first creating an object of that class.
+
+Example:
+
+```java
+class Demo {
+
+    static void display() {
+
+        System.out.println("Hello");
+    }
+}
+```
+
+It can be invoked using the class:
+
+```java
+Demo.display();
+```
+
+Similarly, the JVM can invoke the `main()` method without creating:
+
+```java
+new Demo();
+```
+
+### Remember
+
+```text
+static method
+      ↓
+belongs to class
+      ↓
+object not required
+```
+
+---
+
+# 9️⃣ What is `void`?
+
+`void` is the **return type**.
+
+It means the method does not return a value to its caller.
+
+Example:
+
+```java
+void display() {
+
+    System.out.println("Hello");
+}
+```
+
+This method performs an operation but does not return a value.
+
+---
+
+# 🔟 What is `main`?
+
+`main` is the method name recognized as the **conventional application entry point**.
+
+Example:
+
+```java
+public static void main(String[] args)
+```
+
+Java is case-sensitive.
+
+Therefore:
+
+```text
+main  ✅
+Main  ❌
+MAIN  ❌
+```
+
+The spelling matters.
+
+---
+
+# 1️⃣1️⃣ What is `String[] args`?
+
+`String[] args` is the parameter of the `main()` method.
+
+It means:
+
+> `args` is a reference to an array of String values.
+
+These values can receive **command-line arguments** supplied when launching the application.
+
+Example:
+
+```java
+class Demo {
+
+    public static void main(String[] args) {
+
+        System.out.println(args[0]);
+    }
+}
+```
+
+If we run:
+
+```text
+java Demo Java
+```
+
+Then:
+
+```text
+args[0] → "Java"
+```
+
+Another example:
+
+```text
+java Demo Java Python
+```
+
+Then:
+
+```text
+args[0] → "Java"
+args[1] → "Python"
+```
+
+### Remember
+
+> `String[] args` allows the program to receive command-line arguments.
+
+---
+
+# 1️⃣2️⃣ What is a Statement?
+
+A **statement is an instruction given to the Java program.**
+
+Example:
+
+```java
+System.out.println("Hello World");
+```
+
+This is a statement.
+
+Other examples:
+
+```java
+int age = 25;
+
+System.out.println(age);
+
+age = 30;
+```
+
+Most Java statements end with:
+
+```text
+;
+```
+
+This semicolon is called a **statement terminator**.
+
+---
+
+# 1️⃣3️⃣ Understanding `System.out.println()`
+
+Let's understand:
+
+```java
+System.out.println("Hello World");
+```
+
+Break it down:
+
+```text
+System
+   ↓
+out
+   ↓
+println()
+```
+
+### `System`
+
+`System` is a class from the Java standard library.
+
+### `out`
+
+`out` refers to the standard output stream.
+
+### `println()`
+
+`println()` prints the supplied value and moves the cursor to the next line.
+
+Example:
+
+```java
+System.out.println("Java");
+System.out.println("Python");
+```
+
+Output:
+
+```text
+Java
+Python
+```
+
+---
+
+# 1️⃣4️⃣ Comments in Java
+
+Comments are used to explain code and are ignored by the compiler as executable instructions.
+
+## Single-Line Comment
+
+```java
+// This is a comment
+```
+
+## Multi-Line Comment
+
+```java
+/*
+   This is a
+   multi-line comment
+*/
+```
+
+Example:
+
+```java
+class Student {
+
+    // Main method
+    public static void main(String[] args) {
+
+        System.out.println("Student Application");
+    }
+}
+```
+
+Comments help make code easier to understand and maintain.
+
+---
+
+# 1️⃣5️⃣ Curly Braces `{ }`
+
+Curly braces define a **block of code**.
+
+Example:
+
+```java
+class Student {
+
+}
+```
+
+The braces define the **class body**.
+
+Similarly:
+
+```java
+public static void main(String[] args) {
+
+}
+```
+
+The braces define the **method body**.
+
+Think of it as:
+
+```text
+class Student
+{
+    Class Body
+}
+```
+
+and:
+
+```text
+main()
+{
+    Method Body
+}
+```
+
+---
+
+# 1️⃣6️⃣ Complete Java Program Structure
+
+Let's create a slightly bigger program:
+
+```java
+class Student {
+
+    int id = 101;
+    String name = "Rahul";
+
+    void displayStudent() {
+
+        System.out.println(id);
+        System.out.println(name);
+    }
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.displayStudent();
+    }
+}
+```
+
+### Structure
+
+```text
+Student Class
+│
+├── Instance Variables
+│     ├── id
+│     └── name
+│
+├── Instance Method
+│     └── displayStudent()
+│
+└── main()
+      │
+      ├── Object Creation
+      └── Method Call
+```
+
+This shows how different parts of a Java class work together.
+
+---
+
+# 1️⃣7️⃣ Java Program Execution Flow
+
+This is one of the **most important concepts of Day 4**.
+
+Consider:
+
+```java
+class Demo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello Java");
+    }
+}
+```
+
+What happens internally?
+
+---
+
+## Step 1 — Write Source Code
+
+We create:
+
+```text
+Demo.java
+```
+
+This is called **source code**.
+
+```text
+Demo.java
+```
+
+---
+
+## Step 2 — Compilation
+
+We compile the program using:
+
+```bash
+javac Demo.java
+```
+
+The Java compiler:
+
+```text
+javac
+```
+
+checks the source code and generates bytecode.
+
+Flow:
+
+```text
+Demo.java
+    ↓
+  javac
+    ↓
+Demo.class
+```
+
+---
+
+# 1️⃣8️⃣ What is Bytecode?
+
+The `.class` file contains **Java bytecode**.
+
+Example:
+
+```text
+Demo.java
+    ↓
+Source Code
+    ↓
+  javac
+    ↓
+Demo.class
+    ↓
+Bytecode
+```
+
+Bytecode is designed to be executed by the JVM.
+
+---
+
+# 1️⃣9️⃣ Execution
+
+We execute the program using:
+
+```bash
+java Demo
+```
+
+The JVM starts the application.
+
+Conceptually:
+
+```text
+Demo.class
+    ↓
+   JVM
+    ↓
+Find main()
+    ↓
+Execute Statements
+    ↓
+Output
+```
+
+Output:
+
+```text
+Hello Java
+```
+
+---
+
+# 🔥 Complete Java Execution Flow
+
+This is the flow I should remember:
+
+```text
+Java Source Code
+       ↓
+     Demo.java
+       ↓
+      javac
+       ↓
+ Java Compiler
+       ↓
+     Demo.class
+       ↓
+     Bytecode
+       ↓
+       JVM
+       ↓
+   Class Loading
+       ↓
+      Linking
+       ↓
+  Initialization
+       ↓
+    Find main()
+       ↓
+ Execute Program
+       ↓
+      Output
+```
+
+---
+
+# 2️⃣0️⃣ Compiler vs JVM
+
+Students often confuse these two.
+
+## Java Compiler — `javac`
+
+Main job:
+
+```text
+Source Code
+     ↓
+  Bytecode
+```
+
+## JVM
+
+Main job:
+
+```text
+Bytecode
+     ↓
+ Execution
+```
+
+So:
+
+```text
+javac
+
+Java Source Code
+       ↓
+    Bytecode
+```
+
+and:
+
+```text
+JVM
+
+Bytecode
+   ↓
+Execution
+```
+
+### Easy Way to Remember
+
+> **Compiler creates bytecode. JVM executes bytecode.**
+
+---
+
+# 2️⃣1️⃣ `.java` vs `.class`
+
+| File     | Meaning                |
+| -------- | ---------------------- |
+| `.java`  | Java source-code file  |
+| `.class` | Compiled bytecode file |
+
+Example:
+
+```text
+Student.java
+     ↓
+   javac
+     ↓
+Student.class
+```
+
+---
+
+# 2️⃣2️⃣ Is `.class` Machine Code?
+
+**No.**
+
+The `.class` file contains **Java bytecode**, not native machine code for a particular CPU/OS.
+
+Conceptually:
+
+```text
+Java Source Code
+       ↓
+     Bytecode
+       ↓
+   JVM / Runtime
+       ↓
+ Native Execution
+```
+
+The JVM uses mechanisms such as **interpretation and JIT compilation** to execute bytecode efficiently on the target system.
+
+---
+
+# 2️⃣3️⃣ Why Does Java Need JVM?
+
+Different operating systems have different native environments.
+
+For example:
+
+```text
+Windows
+Linux
+macOS
+```
+
+Java uses JVM implementations for those platforms.
+
+```text
+             Java Bytecode
+                   ↓
+       ┌───────────┼───────────┐
+       ↓           ↓           ↓
+ Windows JVM   Linux JVM   macOS JVM
+       ↓           ↓           ↓
+    Windows       Linux       macOS
+```
+
+This is the foundation of Java's:
+
+> **Write Once, Run Anywhere**
+
+idea.
+
+---
+
+# ⭐ 2️⃣4️⃣ Important Interview Question
+
+### Q: Why is Java platform independent?
+
+### Answer:
+
+Java source code is compiled into **platform-independent bytecode**.
+
+This bytecode can run on different operating systems through compatible, platform-specific JVM implementations.
+
+```text
+Java Source
+     ↓
+  Bytecode
+     ↓
+Different JVMs
+     ↓
+Different Platforms
+```
+
+---
+
+# ⭐ 2️⃣5️⃣ Another Important Question
+
+### Q: Why is JVM platform dependent?
+
+Because the JVM is implemented specifically for the target operating system and hardware environment.
+
+```text
+Windows → Windows JVM
+
+Linux   → Linux JVM
+
+macOS   → macOS JVM
+```
+
+But:
+
+```text
+Java Bytecode → Platform Independent
+JVM           → Platform Dependent
+```
+
+---
+
+# 🧠 Day 4 Easy Memory Map
+
+Remember these four words:
+
+```text
+WRITE
+  ↓
+COMPILE
+  ↓
+LOAD
+  ↓
+EXECUTE
+```
+
+More specifically:
+
+```text
+Write
+  ↓
+.java
+  ↓
+javac
+  ↓
+.class
+  ↓
+Bytecode
+  ↓
+JVM
+  ↓
+main()
+  ↓
+Execution
+  ↓
+Output
+```
+
+---
+
+# 🧑‍💻 Day 4 Practice
+
+## Practice 1 — Employee
+
+Create:
+
+```java
+class Employee
+```
+
+Print:
+
+* Employee ID
+* Employee Name
+* Employee Salary
+
+---
+
+## Practice 2 — Product
+
+Create:
+
+```java
+class Product
+```
+
+Print:
+
+* Product ID
+* Product Name
+* Product Price
+
+---
+
+## Practice 3 — Bank
+
+Create:
+
+```java
+class Bank
+```
+
+Print:
+
+* Account Number
+* Account Holder
+* Balance
+
+---
+
+## Practice 4 — Execution Understanding
+
+Take this program:
+
+```java
+class Demo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Java Full Stack");
+    }
+}
+```
+
+Explain:
+
+1. What is the `Demo` class?
+2. What is `main()`?
+3. What is `public`?
+4. What is `static`?
+5. What is `void`?
+6. What is `String[] args`?
+7. What does `println()` do?
+8. What happens when we compile?
+9. What file is generated?
+10. What happens when we execute?
+
+---
+
+# 🎯 Day 4 Interview Questions
+
+## Basic
+
+1. What is the structure of a Java program?
+2. What is a class?
+3. What is the `main()` method?
+4. Why is `main()` declared `public`?
+5. Why is `main()` declared `static`?
+6. What does `void` mean?
+7. What is `String[] args`?
+8. What is a statement?
+9. What is a code block?
+10. What is a comment?
+
+## Execution
+
+11. What is source code?
+12. What is bytecode?
+13. What is the `.java` file?
+14. What is the `.class` file?
+15. What is `javac`?
+16. What is JVM?
+17. What happens during compilation?
+18. What happens during execution?
+19. Where does Java program execution start?
+20. Why is Java platform independent?
+
+---
+
+# ⚡ Day 4 Final Revision
+
+```text
+                JAVA PROGRAM
+                     │
+                     ↓
+                   CLASS
+                     │
+                     ↓
+                 main() METHOD
+                     │
+                     ↓
+                  STATEMENTS
+                     │
+                     ↓
+               JAVA SOURCE CODE
+                     │
+                   (.java)
+                     │
+                     ↓
+                javac Compiler
+                     │
+                     ↓
+                  BYTECODE
+                     │
+                   (.class)
+                     │
+                     ↓
+                    JVM
+                     │
+             ┌───────┴───────┐
+             ↓               ↓
+       Class Loading       Execution
+             │               │
+             └───────┬───────┘
+                     ↓
+                   OUTPUT
+```
+
+---
+
+# 📝 One-Line Takeaway
+
+> **A Java program is organized into classes, execution of a conventional standalone application begins through the ****`main()`**** method, and the Java compiler converts source code into bytecode that is executed by the JVM.**
+
+---
+
+# 📊 100 Days Java Challenge Progress
+
+| Day       | Topic                                             |
+| --------- | ------------------------------------------------- |
+| ✅ Day 01  | Java Introduction, Class, Object & Reference      |
+| ✅ Day 02  | JDK, JRE, JVM & Java Execution Architecture       |
+| ✅ Day 03  | Java Features                                     |
+| ✅ Day 04  | Java Program Structure, `main()` & Execution Flow |
+| ⏭️ Day 05 | Keywords, Identifiers, Variables & Data Types     |
+
+---
+
+# 🔥 My Learning Formula
+
+> **Learn → Understand → Code → Practice → Explain → Build**
+
+Don't just read Java.
+
+**Understand it. Code it. Practice it. Explain it. Build with it.**
+
+---
+
+## 📈 Progress
+
+### **Day 4 / 100 ✅ Completed**
+
+**Java Beginner → Java Full Stack Developer**
+
+One concept at a time.
+One program at a time.
+One day at a time. ☕💻🚀
+
+---
+
+### 🎥 Learn Java With Me
+
+I am also sharing short **Java concepts, coding videos, and my 100 Days Java journey** on Instagram.
+
+📱 **Instagram: @NagaLevelUp**
+
+Let's learn Java together! ☕🔥
+
+---
