@@ -1,0 +1,1577 @@
+# ☕ Day 06 — Operators in Java
+
+## 🎯 Day 6 Goal
+
+By the end of Day 6, a fresher should understand:
+
+* What operators are
+* What operands are
+* What expressions are
+* Why operators are required
+* How Java evaluates expressions
+* Different types of operators
+* Where each operator is used
+* Common beginner mistakes
+* How operators are used in real programming problems
+
+---
+
+# 1️⃣ What is an Operator?
+
+An **operator** is a symbol that tells Java to perform an operation on one or more values.
+
+### Example
+
+```java
+int a = 10;
+int b = 20;
+
+int result = a + b;
+```
+
+Here:
+
+| Part     | Meaning                     |
+| -------- | --------------------------- |
+| `a`, `b` | Operands                    |
+| `+`      | Operator                    |
+| `a + b`  | Expression                  |
+| `result` | Variable storing the result |
+
+### Simple Definition
+
+> **Operator = A symbol that performs an operation on operands.**
+
+---
+
+# 2️⃣ What is an Operand?
+
+An **operand** is a value or variable on which an operator performs an operation.
+
+Example:
+
+```java
+int result = a + b;
+```
+
+Here:
+
+```text
+a → Operand
++ → Operator
+b → Operand
+```
+
+---
+
+# 3️⃣ What is an Expression?
+
+An **expression** is a combination of values, variables, operators, and method calls that produces a value.
+
+Example:
+
+```java
+a + b
+```
+
+Another example:
+
+```java
+a * b + 10
+```
+
+Example:
+
+```java
+int result = a + b;
+```
+
+Here:
+
+```text
+a + b → Expression
+result → Stores the result
+```
+
+---
+
+# 4️⃣ Types of Operators in Java
+
+Java provides several types of operators:
+
+```text
+1. Arithmetic Operators
+2. Unary Operators
+3. Assignment Operators
+4. Relational Operators
+5. Logical Operators
+6. Bitwise Operators
+7. Shift Operators
+8. Ternary Operator
+9. instanceof Operator
+```
+
+For beginners, learn them in this order.
+
+---
+
+# 5️⃣ Arithmetic Operators
+
+Arithmetic operators are used to perform mathematical calculations.
+
+| Operator | Meaning        | Example   |
+| -------- | -------------- | --------- |
+| `+`      | Addition       | `10 + 20` |
+| `-`      | Subtraction    | `20 - 10` |
+| `*`      | Multiplication | `10 * 20` |
+| `/`      | Division       | `20 / 10` |
+| `%`      | Remainder      | `20 % 3`  |
+
+### Example
+
+```java
+int a = 20;
+int b = 6;
+
+System.out.println(a + b);
+System.out.println(a - b);
+System.out.println(a * b);
+System.out.println(a / b);
+System.out.println(a % b);
+```
+
+### Output
+
+```text
+26
+14
+120
+3
+2
+```
+
+---
+
+# 6️⃣ Integer Division `/`
+
+This is very important for beginners.
+
+Consider:
+
+```java
+System.out.println(10 / 3);
+```
+
+Output:
+
+```text
+3
+```
+
+Why?
+
+Because both operands are integers.
+
+```text
+10 / 3 = 3 remainder 1
+```
+
+The integer result is `3`.
+
+But:
+
+```java
+System.out.println(10.0 / 3);
+```
+
+Output:
+
+```text
+3.3333333333333335
+```
+
+Because `10.0` is a floating-point value.
+
+### Remember
+
+```text
+int / int
+    ↓
+integer result
+
+floating-point involved
+    ↓
+floating-point result
+```
+
+---
+
+# 7️⃣ Modulus `%`
+
+The `%` operator returns the **remainder** after division.
+
+Example:
+
+```java
+System.out.println(10 % 3);
+```
+
+Output:
+
+```text
+1
+```
+
+Because:
+
+```text
+10 ÷ 3
+
+Quotient  → 3
+Remainder → 1
+```
+
+---
+
+## 🔥 Where is `%` Used?
+
+The modulus operator is extremely useful in programming.
+
+### Even or Odd
+
+```java
+int n = 25;
+
+if (n % 2 == 0)
+    System.out.println("Even");
+else
+    System.out.println("Odd");
+```
+
+### Finding the Last Digit
+
+```java
+int n = 12345;
+
+System.out.println(n % 10);
+```
+
+Output:
+
+```text
+5
+```
+
+### `%` becomes useful in:
+
+* Reverse Number
+* Palindrome
+* Armstrong Number
+* Digit Counting
+* Number-based problems
+
+### Important
+
+> `%` does **not** mean percentage in Java. It means **remainder/modulus**.
+
+---
+
+# 8️⃣ Unary Operators
+
+A **unary operator** works with one operand.
+
+Common unary operators include:
+
+```text
++
+-
+++
+--
+!
+~
+```
+
+The most important beginner concepts are:
+
+```text
+++
+--
+!
+```
+
+---
+
+# 9️⃣ Increment Operator `++`
+
+The `++` operator increases a value by `1`.
+
+```java
+int a = 10;
+
+a++;
+
+System.out.println(a);
+```
+
+Output:
+
+```text
+11
+```
+
+This is equivalent to:
+
+```java
+a = a + 1;
+```
+
+---
+
+# 🔟 Decrement Operator `--`
+
+The `--` operator decreases a value by `1`.
+
+```java
+int a = 10;
+
+a--;
+
+System.out.println(a);
+```
+
+Output:
+
+```text
+9
+```
+
+Equivalent to:
+
+```java
+a = a - 1;
+```
+
+---
+
+# 1️⃣1️⃣ Pre-Increment vs Post-Increment
+
+🔥 This is one of the most important operator concepts for interviews.
+
+There are two forms:
+
+```text
+Post-Increment → a++
+Pre-Increment  → ++a
+```
+
+---
+
+## 🔹 Post-Increment `a++`
+
+Example:
+
+```java
+int a = 10;
+
+int b = a++;
+
+System.out.println(a);
+System.out.println(b);
+```
+
+Output:
+
+```text
+11
+10
+```
+
+### What happened?
+
+```text
+a = 10
+
+b = a++ 
+   ↓
+Use 10 first
+   ↓
+b = 10
+   ↓
+Then increase a
+   ↓
+a = 11
+```
+
+### Memory Trick
+
+> `a++` → **USE first → INCREASE later**
+
+---
+
+# 1️⃣2️⃣ Pre-Increment `++a`
+
+Example:
+
+```java
+int a = 10;
+
+int b = ++a;
+
+System.out.println(a);
+System.out.println(b);
+```
+
+Output:
+
+```text
+11
+11
+```
+
+### What happened?
+
+```text
+a = 10
+
+b = ++a
+   ↓
+Increase first
+   ↓
+a = 11
+   ↓
+Use 11
+   ↓
+b = 11
+```
+
+### Memory Trick
+
+> `++a` → **INCREASE first → USE later**
+
+---
+
+# 1️⃣3️⃣ Pre-Decrement vs Post-Decrement
+
+The same concept applies to `--`.
+
+### Post-Decrement
+
+```java
+int a = 10;
+
+int b = a--;
+
+System.out.println(a);
+System.out.println(b);
+```
+
+Output:
+
+```text
+9
+10
+```
+
+### Pre-Decrement
+
+```java
+int a = 10;
+
+int b = --a;
+
+System.out.println(a);
+System.out.println(b);
+```
+
+Output:
+
+```text
+9
+9
+```
+
+### Easy Memory Map
+
+```text
+a++  → USE → INCREASE
+++a  → INCREASE → USE
+
+a--  → USE → DECREASE
+--a  → DECREASE → USE
+```
+
+---
+
+# 1️⃣4️⃣ Assignment Operators
+
+Assignment operators are used to assign values to variables.
+
+## Basic Assignment `=`
+
+```java
+int a = 10;
+```
+
+Meaning:
+
+> Assign the value `10` to variable `a`.
+
+---
+
+## Compound Assignment Operators
+
+Java provides:
+
+```text
++=
+-=
+*=
+/=
+%=
+```
+
+### Example
+
+```java
+int a = 10;
+
+a += 5;
+
+System.out.println(a);
+```
+
+Output:
+
+```text
+15
+```
+
+This is equivalent to:
+
+```java
+a = a + 5;
+```
+
+### Other Examples
+
+```java
+a -= 5;
+```
+
+Equivalent to:
+
+```java
+a = a - 5;
+```
+
+```java
+a *= 5;
+```
+
+Equivalent to:
+
+```java
+a = a * 5;
+```
+
+```java
+a /= 5;
+```
+
+Equivalent to:
+
+```java
+a = a / 5;
+```
+
+```java
+a %= 5;
+```
+
+Equivalent to:
+
+```java
+a = a % 5;
+```
+
+---
+
+# 1️⃣5️⃣ Relational Operators
+
+Relational operators compare values.
+
+The result is always:
+
+```text
+true
+```
+
+or
+
+```text
+false
+```
+
+### Operators
+
+```text
+>
+<
+>=
+<=
+==
+!=
+```
+
+### Example
+
+```java
+int a = 10;
+int b = 20;
+
+System.out.println(a > b);
+System.out.println(a < b);
+System.out.println(a == b);
+System.out.println(a != b);
+```
+
+### Output
+
+```text
+false
+true
+false
+true
+```
+
+---
+
+# 1️⃣6️⃣ Meaning of Relational Operators
+
+| Operator | Meaning                  |
+| -------- | ------------------------ |
+| `>`      | Greater than             |
+| `<`      | Less than                |
+| `>=`     | Greater than or equal to |
+| `<=`     | Less than or equal to    |
+| `==`     | Equal to                 |
+| `!=`     | Not equal to             |
+
+Example:
+
+```java
+int age = 25;
+
+System.out.println(age >= 18);
+```
+
+Output:
+
+```text
+true
+```
+
+---
+
+# 1️⃣7️⃣ `=` vs `==`
+
+🔥 Very important interview question.
+
+## `=` Assignment
+
+```java
+int a = 10;
+```
+
+Means:
+
+> Put/assign `10` into `a`.
+
+---
+
+## `==` Equality Comparison
+
+```java
+a == 10
+```
+
+Means:
+
+> Is `a` equal to `10`?
+
+### Remember
+
+```text
+=   → Assignment
+
+==  → Comparison
+```
+
+---
+
+# 1️⃣8️⃣ Logical Operators
+
+Logical operators are used to combine or reverse conditions.
+
+Java provides:
+
+```text
+&& → AND
+|| → OR
+!  → NOT
+```
+
+---
+
+# 1️⃣9️⃣ AND `&&`
+
+Both conditions must be true.
+
+```java
+int age = 25;
+
+System.out.println(age >= 18 && age <= 60);
+```
+
+Output:
+
+```text
+true
+```
+
+### Truth Table
+
+| A     | B     | A && B |
+| ----- | ----- | ------ |
+| true  | true  | true   |
+| true  | false | false  |
+| false | true  | false  |
+| false | false | false  |
+
+### Easy Rule
+
+> **AND → Everything must be true.**
+
+---
+
+# 2️⃣0️⃣ OR `||`
+
+At least one condition must be true.
+
+```java
+int age = 17;
+
+System.out.println(age < 18 || age > 60);
+```
+
+Output:
+
+```text
+true
+```
+
+### Truth Table
+
+| A     | B     | A || B |
+| ----- | ----- | ------ |
+| true  | true  | true   |
+| true  | false | true   |
+| false | true  | true   |
+| false | false | false  |
+
+### Easy Rule
+
+> **OR → At least one must be true.**
+
+---
+
+# 2️⃣1️⃣ NOT `!`
+
+The `!` operator reverses a boolean result.
+
+```java
+boolean status = true;
+
+System.out.println(!status);
+```
+
+Output:
+
+```text
+false
+```
+
+Another example:
+
+```java
+boolean status = false;
+
+System.out.println(!status);
+```
+
+Output:
+
+```text
+true
+```
+
+### Easy Rule
+
+> `!` → Reverses true/false.
+
+---
+
+# 2️⃣2️⃣ Short-Circuit Operators
+
+Java provides short-circuit logical operators:
+
+```text
+&&
+||
+```
+
+Java may stop evaluating the remaining part when the final result is already known.
+
+### Example with `||`
+
+```java
+int a = 10;
+
+System.out.println(a > 5 || ++a > 20);
+
+System.out.println(a);
+```
+
+The first condition:
+
+```text
+a > 5
+```
+
+is already `true`.
+
+Therefore, Java does not need to evaluate:
+
+```text
+++a > 20
+```
+
+So:
+
+```text
+a = 10
+```
+
+### Important
+
+Short-circuit evaluation is useful for:
+
+* Conditions
+* Null checks
+* Exception prevention
+* Efficient condition evaluation
+
+---
+
+# 2️⃣3️⃣ Ternary Operator
+
+The ternary operator is a compact way to choose between two values based on a condition.
+
+### Syntax
+
+```java
+condition ? value1 : value2;
+```
+
+### Example
+
+```java
+int age = 20;
+
+String result = age >= 18 ? "Eligible" : "Not Eligible";
+
+System.out.println(result);
+```
+
+Output:
+
+```text
+Eligible
+```
+
+### Another Example
+
+Find maximum of two numbers:
+
+```java
+int a = 10;
+int b = 20;
+
+int max = a > b ? a : b;
+
+System.out.println(max);
+```
+
+Output:
+
+```text
+20
+```
+
+### Easy Memory Trick
+
+```text
+condition
+   ↓
+true  → first value
+false → second value
+```
+
+---
+
+# 2️⃣4️⃣ Bitwise Operators
+
+Bitwise operators work at the level of individual bits.
+
+Common operators:
+
+```text
+&
+|
+^
+~
+```
+
+### Example
+
+```java
+int a = 5;
+int b = 3;
+
+System.out.println(a & b);
+System.out.println(a | b);
+System.out.println(a ^ b);
+```
+
+Binary representation:
+
+```text
+5 → 0101
+3 → 0011
+```
+
+### AND `&`
+
+```text
+  0101
+& 0011
+------
+  0001
+```
+
+Result:
+
+```text
+1
+```
+
+### OR `|`
+
+```text
+  0101
+| 0011
+------
+  0111
+```
+
+Result:
+
+```text
+7
+```
+
+### XOR `^`
+
+```text
+  0101
+^ 0011
+------
+  0110
+```
+
+Result:
+
+```text
+6
+```
+
+### Day 6 Goal
+
+You don't need to master advanced bit manipulation today.
+
+The goal is to understand what bitwise operators are and recognize them.
+
+---
+
+# 2️⃣5️⃣ Shift Operators
+
+Java provides three shift operators:
+
+```text
+<<  → Left Shift
+>>  → Signed Right Shift
+>>> → Unsigned Right Shift
+```
+
+### Example
+
+```java
+int a = 8;
+
+System.out.println(a << 1);
+System.out.println(a >> 1);
+```
+
+Output:
+
+```text
+16
+4
+```
+
+Conceptually:
+
+```text
+8 << 1 → 16
+
+8 >> 1 → 4
+```
+
+The `>>>` operator performs an unsigned right shift, filling the left side with zeros.
+
+---
+
+# 2️⃣6️⃣ `instanceof` Operator
+
+The `instanceof` operator checks whether an object is compatible with a particular type.
+
+Example:
+
+```java
+String name = "Java";
+
+System.out.println(name instanceof String);
+```
+
+Output:
+
+```text
+true
+```
+
+This becomes much more meaningful when learning:
+
+* Classes
+* Objects
+* Inheritance
+* Polymorphism
+
+---
+
+# 2️⃣7️⃣ Operator Precedence
+
+Operator precedence determines which parts of an expression are evaluated first.
+
+Consider:
+
+```java
+int result = 10 + 20 * 2;
+```
+
+Will Java calculate:
+
+```text
+(10 + 20) * 2
+```
+
+or:
+
+```text
+10 + (20 * 2)
+```
+
+The answer is:
+
+```text
+50
+```
+
+Because multiplication has higher precedence than addition.
+
+```text
+20 * 2 = 40
+
+10 + 40 = 50
+```
+
+---
+
+## Basic Precedence Order
+
+For beginner-level expressions, remember the broad order:
+
+```text
+()
+++
+--
+*
+/
+%
++
+-
+<
+>
+<=
+>=
+==
+!=
+&&
+||
+?:
+=
+```
+
+### Best Practice
+
+When an expression may be confusing, use parentheses.
+
+Instead of:
+
+```java
+int result = 10 + 20 * 2;
+```
+
+write:
+
+```java
+int result = 10 + (20 * 2);
+```
+
+Or:
+
+```java
+int result = (10 + 20) * 2;
+```
+
+Parentheses make your intention clear.
+
+---
+
+# 2️⃣8️⃣ Expression Evaluation
+
+Now let's predict some outputs.
+
+## Question 1
+
+```java
+int a = 10;
+int b = 20;
+
+System.out.println(a + b * 2);
+```
+
+### Answer
+
+```text
+50
+```
+
+Because:
+
+```text
+20 * 2 = 40
+10 + 40 = 50
+```
+
+---
+
+## Question 2
+
+```java
+int a = 10;
+
+System.out.println(a++);
+System.out.println(a);
+```
+
+### Answer
+
+```text
+10
+11
+```
+
+---
+
+## Question 3
+
+```java
+int a = 10;
+
+System.out.println(++a);
+System.out.println(a);
+```
+
+### Answer
+
+```text
+11
+11
+```
+
+---
+
+## Question 4
+
+```java
+System.out.println(10 / 3);
+```
+
+### Answer
+
+```text
+3
+```
+
+---
+
+## Question 5
+
+```java
+System.out.println(10 % 3);
+```
+
+### Answer
+
+```text
+1
+```
+
+---
+
+# 2️⃣9️⃣ Common Beginner Mistakes
+
+## ❌ Mistake 1 — Confusing `=` and `==`
+
+Incorrect for an `int` condition:
+
+```java
+if (a = 10)
+```
+
+Use:
+
+```java
+if (a == 10)
+```
+
+Remember:
+
+```text
+=  → Assignment
+== → Comparison
+```
+
+---
+
+## ❌ Mistake 2 — Assuming Integer Division Produces Decimal
+
+Some beginners expect:
+
+```java
+10 / 3
+```
+
+to produce:
+
+```text
+3.333...
+```
+
+But:
+
+```java
+10 / 3
+```
+
+produces:
+
+```text
+3
+```
+
+because both operands are integers.
+
+---
+
+## ❌ Mistake 3 — Confusing `a++` and `++a`
+
+Remember:
+
+```text
+a++ → USE → INCREASE
+
+++a → INCREASE → USE
+```
+
+---
+
+## ❌ Mistake 4 — Thinking `%` Means Percentage
+
+In Java:
+
+```text
+% → Remainder / Modulus
+```
+
+Example:
+
+```java
+10 % 3
+```
+
+Result:
+
+```text
+1
+```
+
+---
+
+# 💻 3️⃣0️⃣ Day 6 Practical Programs
+
+## 🟢 Level 1 — Basic Arithmetic
+
+Create programs to:
+
+1. Add two numbers
+2. Subtract two numbers
+3. Multiply two numbers
+4. Divide two numbers
+5. Find the remainder
+6. Find the area of a circle
+7. Calculate simple interest
+
+---
+
+# 🟡 Level 2 — Operators
+
+Create programs to:
+
+1. Check whether a number is even or odd
+2. Find the last digit of a number
+3. Find the maximum of two numbers using the ternary operator
+4. Check whether a person is eligible to vote
+5. Calculate total marks
+6. Calculate average marks
+
+---
+
+# 🔴 Level 3 — Expression Evaluation
+
+Predict the output before running the programs.
+
+Practice:
+
+1. `a++`
+2. `++a`
+3. `a--`
+4. `--a`
+5. Expressions using `+`, `-`, `*`, `/`, `%`
+6. Expressions using `&&`
+7. Expressions using `||`
+8. Expressions using parentheses and multiple operators
+
+---
+
+# 🎤 3️⃣1️⃣ Day 6 Interview Questions
+
+### Basic
+
+1. What is an operator?
+2. What is an operand?
+3. What is an expression?
+4. What are arithmetic operators?
+5. What is the difference between `/` and `%`?
+
+### Increment & Assignment
+
+6. What is the difference between `++a` and `a++`?
+7. What is the difference between `--a` and `a--`?
+8. What are assignment operators?
+9. What is the difference between `=` and `==`?
+
+### Comparison & Logic
+
+10. What are relational operators?
+11. What are logical operators?
+12. What is the difference between `&&` and `&`?
+13. What is the difference between `||` and `|`?
+14. What is short-circuit evaluation?
+
+### Advanced Beginner Topics
+
+15. What is the ternary operator?
+16. What is operator precedence?
+17. What are bitwise operators?
+18. What are shift operators?
+19. What is the difference between `>>` and `>>>`?
+20. What is the `instanceof` operator?
+
+---
+
+# 🏆 3️⃣2️⃣ Day 6 Classroom Challenge
+
+### Don't run the program immediately.
+
+First predict the output.
+
+```java
+int a = 10;
+int b = 5;
+
+int result = a++ + ++b * 2 - --a;
+
+System.out.println(a);
+System.out.println(b);
+System.out.println(result);
+```
+
+### Your Task
+
+Before executing, determine:
+
+```text
+a = ?
+b = ?
+result = ?
+```
+
+Then run the program and verify your answer.
+
+> **This exercise is designed to improve expression evaluation and operator understanding.**
+
+---
+
+# 🧠 3️⃣3️⃣ Day 6 Quick Revision
+
+```text
+OPERATOR
+    ↓
+OPERAND
+    ↓
+EXPRESSION
+    ↓
+EVALUATION
+    ↓
+RESULT
+```
+
+### Important Operators
+
+```text
+Arithmetic
++  -  *  /  %
+
+Unary
+++  --  !  +  -  ~
+
+Assignment
+=  +=  -=  *=  /=  %=
+
+Relational
+>  <  >=  <=  ==  !=
+
+Logical
+&&  ||  !
+
+Bitwise
+&  |  ^  ~
+
+Shift
+<<  >>  >>>
+
+Ternary
+?:
+
+Type Check
+instanceof
+```
+
+---
+
+# 🎯 Day 6 Takeaway
+
+Operators are not just syntax.
+
+They are the foundation for:
+
+```text
+Operators
+    ↓
+Expressions
+    ↓
+Conditions
+    ↓
+Decision Making
+    ↓
+Loops
+    ↓
+Problem Solving
+    ↓
+DSA
+```
+
+Once you understand operators properly, many future Java concepts become easier.
+
+---
+
+# 🚀 100 Days Java Learning Journey
+
+```text
+Day 01 → Java Introduction
+Day 02 → JDK, JRE & JVM
+Day 03 → Java Features
+Day 04 → Java Program Structure & Execution Flow
+Day 05 → Variables, Data Types & Literals
+Day 06 → Operators in Java
+Day 07 → Control Statements
+```
+
+## 🔮 Day 7 Preview
+
+### Control Statements in Java
+
+We will move into:
+
+```text
+if
+    ↓
+if-else
+    ↓
+else-if
+    ↓
+nested if
+    ↓
+switch
+    ↓
+Decision Making
+```
+
+---
+
+# 🔥 Learning Formula
+
+> **Learn → Understand → Code → Practice → Explain → Build**
+
+###
