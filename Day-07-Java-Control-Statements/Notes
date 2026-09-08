@@ -1,0 +1,1366 @@
+Absolutely. I’ll turn your Day 7 material into **clear, simple classroom-style notes**, keeping the same topics and adding easy examples so beginners can understand **what, why, where, and how**.
+
+# ☕ Day 07 — Control Statements in Java
+
+## 🎯 Day 7 Goal
+
+After learning **Operators** on Day 6, today we learn how Java **makes decisions**.
+
+Java can check a condition and decide:
+
+> **“If this condition is true, do this. Otherwise, do something else.”**
+
+### Learning Flow
+
+**Operators → Conditions → Decisions → Control Statements → Problem Solving**
+
+---
+
+# 1. What are Control Statements?
+
+Control statements are used to **control the flow of execution** of a Java program.
+
+Normally, Java executes statements one after another:
+
+```text
+Statement 1
+    ↓
+Statement 2
+    ↓
+Statement 3
+    ↓
+Statement 4
+```
+
+But sometimes we want Java to make a decision.
+
+```text
+             Condition
+             /       \
+          true       false
+           ↓           ↓
+      Statement A   Statement B
+```
+
+### Real-Life Example
+
+Suppose you go to a movie:
+
+```text
+Do you have a ticket?
+       /       \
+     Yes        No
+      ↓          ↓
+ Enter Movie   Don't Enter
+```
+
+Java can make similar decisions using control statements.
+
+---
+
+# 2. Types of Control Statements
+
+Control statements can be broadly divided into three categories:
+
+```text
+Control Statements
+       |
+       |--- 1. Decision Making
+       |
+       |--- 2. Looping
+       |
+       |--- 3. Jump Statements
+```
+
+### 1. Decision Making
+
+Used to make decisions.
+
+Examples:
+
+* `if`
+* `if-else`
+* `else-if`
+* `switch`
+
+### 2. Looping
+
+Used to repeat statements.
+
+Examples:
+
+* `for`
+* `while`
+* `do-while`
+
+### 3. Jump Statements
+
+Used to change the normal flow.
+
+Examples:
+
+* `break`
+* `continue`
+* `return`
+
+### 📌 Day 7 Focus
+
+Today we mainly focus on **Decision-Making Statements**.
+
+---
+
+# 3. if Statement
+
+## What is `if`?
+
+The `if` statement executes a block of code **only when the condition is true**.
+
+### Syntax
+
+```java
+if(condition) {
+    // statements
+}
+```
+
+### Simple Example
+
+```java
+int age = 20;
+
+if(age >= 18) {
+    System.out.println("Eligible to Vote");
+}
+```
+
+### Output
+
+```text
+Eligible to Vote
+```
+
+### How does it work?
+
+```text
+age = 20
+
+age >= 18
+   ↓
+ true
+   ↓
+Execute the if block
+   ↓
+Eligible to Vote
+```
+
+Now:
+
+```java
+int age = 15;
+
+if(age >= 18) {
+    System.out.println("Eligible to Vote");
+}
+```
+
+Condition:
+
+```text
+15 >= 18 → false
+```
+
+Therefore, nothing is printed.
+
+### ⭐ Remember
+
+> `if` executes its block **only when the condition is true**.
+
+---
+
+# 4. if-else Statement
+
+## Why do we need `if-else`?
+
+Sometimes there are **two possible outcomes**.
+
+For example:
+
+```text
+Age >= 18 → Eligible
+Age < 18  → Not Eligible
+```
+
+### Example
+
+```java
+int age = 15;
+
+if(age >= 18) {
+    System.out.println("Eligible");
+} else {
+    System.out.println("Not Eligible");
+}
+```
+
+### Output
+
+```text
+Not Eligible
+```
+
+### Flow
+
+```text
+          age >= 18?
+          /       \
+       true       false
+        ↓           ↓
+    Eligible    Not Eligible
+```
+
+### Real-Life Example
+
+```text
+Is it raining?
+     /    \
+   Yes     No
+    ↓       ↓
+Take      Don't
+umbrella  take umbrella
+```
+
+---
+
+# 5. if-else with Operators
+
+This is where Day 6 Operators become useful.
+
+### Example: Even or Odd
+
+```java
+int number = 25;
+
+if(number % 2 == 0) {
+    System.out.println("Even");
+} else {
+    System.out.println("Odd");
+}
+```
+
+### How?
+
+For `25`:
+
+```text
+25 % 2 = 1
+```
+
+So:
+
+```text
+1 == 0 → false
+```
+
+Therefore:
+
+```text
+Odd
+```
+
+### Operators Used
+
+Here we are using:
+
+```text
+%   → remainder
+==  → comparison
+if  → decision
+else → alternative decision
+```
+
+This is an important connection between **Day 6 and Day 7**.
+
+---
+
+# 6. Multiple Conditions
+
+What if we have more than two possibilities?
+
+Example:
+
+```text
+90 or above → A
+75 to 89    → B
+60 to 74    → C
+Below 60    → Fail
+```
+
+We can use an **if-else-if ladder**.
+
+### Example
+
+```java
+int marks = 75;
+
+if(marks >= 90) {
+    System.out.println("A Grade");
+} else if(marks >= 75) {
+    System.out.println("B Grade");
+} else if(marks >= 60) {
+    System.out.println("C Grade");
+} else {
+    System.out.println("Fail");
+}
+```
+
+### Output
+
+```text
+B Grade
+```
+
+Why?
+
+```text
+75 >= 90 → false
+75 >= 75 → true
+```
+
+Java executes:
+
+```java
+System.out.println("B Grade");
+```
+
+Then it stops checking the remaining `else-if` conditions.
+
+---
+
+# 7. if-else-if Ladder
+
+## What is an if-else-if ladder?
+
+It is used when there are **multiple conditions**.
+
+### Structure
+
+```java
+if(condition1) {
+
+} else if(condition2) {
+
+} else if(condition3) {
+
+} else {
+
+}
+```
+
+Java checks conditions **from top to bottom**.
+
+### Example: Electricity Usage
+
+```java
+int units = 250;
+
+if(units <= 100) {
+    System.out.println("Low Usage");
+} else if(units <= 200) {
+    System.out.println("Medium Usage");
+} else {
+    System.out.println("High Usage");
+}
+```
+
+### Output
+
+```text
+High Usage
+```
+
+### Flow
+
+```text
+units <= 100?
+     ↓ No
+
+units <= 200?
+     ↓ No
+
+else
+     ↓
+High Usage
+```
+
+### ⭐ Important
+
+In an `if-else-if` ladder:
+
+> Java executes the **first matching block** and skips the remaining conditions.
+
+---
+
+# 8. Nested if
+
+## What is Nested if?
+
+An `if` statement inside another `if` statement is called a **nested if**.
+
+### Example
+
+```java
+int age = 25;
+boolean idProof = true;
+
+if(age >= 18) {
+
+    if(idProof) {
+        System.out.println("Entry Allowed");
+    }
+
+}
+```
+
+### Flow
+
+```text
+Age >= 18?
+    ↓ Yes
+Check ID Proof
+    ↓
+ID Proof = true
+    ↓
+Entry Allowed
+```
+
+### Why use Nested if?
+
+When the **second condition should be checked only after the first condition is satisfied**.
+
+### Real-Life Example
+
+```text
+Age >= 18?
+     ↓ Yes
+Has ID Proof?
+     ↓ Yes
+Entry Allowed
+```
+
+---
+
+# 9. Multiple if vs if-else-if
+
+This is a very important beginner concept.
+
+## Multiple Independent `if`
+
+```java
+int a = 10;
+
+if(a > 5) {
+    System.out.println("A");
+}
+
+if(a > 8) {
+    System.out.println("B");
+}
+```
+
+### Output
+
+```text
+A
+B
+```
+
+Why?
+
+Both conditions are checked independently:
+
+```text
+10 > 5 → true
+10 > 8 → true
+```
+
+So both blocks execute.
+
+---
+
+## if-else-if
+
+```java
+int a = 10;
+
+if(a > 5) {
+    System.out.println("A");
+} else if(a > 8) {
+    System.out.println("B");
+}
+```
+
+### Output
+
+```text
+A
+```
+
+Why?
+
+The first condition is already true:
+
+```text
+10 > 5 → true
+```
+
+So Java executes `A` and **does not check the ****`else-if`**.
+
+### ⭐ Interview Point
+
+```text
+Multiple if
+→ Every if condition is checked independently.
+
+if-else-if
+→ Conditions are checked from top to bottom.
+→ First true condition executes.
+```
+
+---
+
+# 10. switch Statement
+
+## What is `switch`?
+
+`switch` is used when we want to select **one option from multiple fixed choices**.
+
+### Example
+
+Suppose:
+
+```text
+1 → Monday
+2 → Tuesday
+3 → Wednesday
+```
+
+We can use `switch`.
+
+```java
+int day = 2;
+
+switch(day) {
+
+    case 1:
+        System.out.println("Monday");
+        break;
+
+    case 2:
+        System.out.println("Tuesday");
+        break;
+
+    case 3:
+        System.out.println("Wednesday");
+        break;
+
+    default:
+        System.out.println("Invalid Day");
+}
+```
+
+### Output
+
+```text
+Tuesday
+```
+
+### How it works
+
+```text
+day = 2
+
+case 1 → No
+case 2 → Yes
+          ↓
+       Tuesday
+```
+
+---
+
+# 11. What is `case`?
+
+A `case` represents one possible value inside a `switch`.
+
+Example:
+
+```java
+switch(day) {
+
+    case 1:
+        System.out.println("Monday");
+        break;
+
+    case 2:
+        System.out.println("Tuesday");
+        break;
+}
+```
+
+Here:
+
+```text
+case 1 → Monday
+case 2 → Tuesday
+```
+
+---
+
+# 12. Why do we use `break`?
+
+`break` is used to **terminate the switch**.
+
+Consider:
+
+```java
+int day = 2;
+
+switch(day) {
+
+    case 1:
+        System.out.println("Monday");
+
+    case 2:
+        System.out.println("Tuesday");
+
+    case 3:
+        System.out.println("Wednesday");
+}
+```
+
+Because there is no `break`, execution can continue into the following cases after a match.
+
+This behavior is called **fall-through**.
+
+### With break
+
+```java
+case 2:
+    System.out.println("Tuesday");
+    break;
+```
+
+After printing Tuesday:
+
+```text
+Tuesday
+   ↓
+break
+   ↓
+Exit switch
+```
+
+### ⭐ Remember
+
+> `break` stops execution of the current `switch`.
+
+---
+
+# 13. default in switch
+
+`default` executes when **no case matches**.
+
+### Example
+
+```java
+int choice = 10;
+
+switch(choice) {
+
+    case 1:
+        System.out.println("Java");
+        break;
+
+    case 2:
+        System.out.println("Python");
+        break;
+
+    default:
+        System.out.println("Invalid Choice");
+}
+```
+
+### Output
+
+```text
+Invalid Choice
+```
+
+Because:
+
+```text
+10 == 1 → false
+10 == 2 → false
+```
+
+No case matches, so:
+
+```text
+default
+```
+
+executes.
+
+---
+
+# 14. if-else vs switch
+
+## Use `if-else` when:
+
+You need:
+
+* Ranges
+* Comparisons
+* Complex conditions
+* Multiple logical conditions
+
+### Example
+
+```java
+if(marks >= 90) {
+    System.out.println("A");
+}
+```
+
+Here we are checking a **range/condition**.
+
+---
+
+## Use `switch` when:
+
+You have **fixed choices**.
+
+Examples:
+
+* Menu options
+* Day numbers
+* Month numbers
+* User choices
+* Fixed commands
+
+Example:
+
+```java
+switch(choice) {
+    case 1:
+        System.out.println("Java");
+        break;
+
+    case 2:
+        System.out.println("Python");
+        break;
+}
+```
+
+### Easy Memory Trick
+
+```text
+if-else → Conditions / Ranges
+
+switch → Fixed Choices
+```
+
+---
+
+# 15. Nested switch
+
+A `switch` can also contain another `switch`.
+
+Example:
+
+```java
+switch(choice) {
+
+    case 1:
+
+        switch(option) {
+
+            case 1:
+                System.out.println("Option 1");
+                break;
+        }
+
+        break;
+}
+```
+
+For Day 7, you only need to **understand the concept**.
+
+Deep practice is not required yet.
+
+---
+
+# 16. Ternary Operator Connection
+
+You already learned the ternary operator on **Day 6**.
+
+Example:
+
+```java
+int a = 10;
+int b = 20;
+
+int max = a > b ? a : b;
+```
+
+This means:
+
+```text
+condition ? trueValue : falseValue
+```
+
+### Equivalent if-else
+
+```java
+int max;
+
+if(a > b) {
+    max = a;
+} else {
+    max = b;
+}
+```
+
+### Simple Rule
+
+```text
+Simple decision → Ternary
+
+Complex decision → if-else
+```
+
+### Important
+
+Ternary is **not a replacement for every ****`if-else`**.
+
+Use it when the decision is simple and readable.
+
+---
+
+# 17. Important Concept — Condition Must Produce boolean
+
+Java expects an `if` condition to produce:
+
+```text
+true
+```
+
+or
+
+```text
+false
+```
+
+### Valid
+
+```java
+int age = 20;
+
+if(age >= 18) {
+    System.out.println("Adult");
+}
+```
+
+Because:
+
+```text
+age >= 18
+20 >= 18
+true
+```
+
+---
+
+### Invalid
+
+```java
+int age = 20;
+
+if(age) {
+    System.out.println("Adult");
+}
+```
+
+This is invalid in Java.
+
+### Why?
+
+Java does **not** automatically treat an `int` as a `boolean`.
+
+Unlike some languages:
+
+```text
+Java:
+int ≠ boolean
+```
+
+---
+
+# 18. Common Beginner Mistake — `=` vs `==`
+
+This is one of the most common mistakes.
+
+### Wrong
+
+```java
+if(age = 18) {
+}
+```
+
+`=` means:
+
+> Assignment
+
+It is used to assign a value.
+
+```java
+age = 18;
+```
+
+---
+
+### Correct
+
+```java
+if(age == 18) {
+}
+```
+
+`==` means:
+
+> Comparison
+
+It checks whether two values are equal.
+
+### Easy Memory Trick
+
+```text
+=   → Give a value
+
+==  → Compare values
+```
+
+---
+
+# 19. Very Important Example — Multiple if
+
+Consider:
+
+```java
+int a = 10;
+
+if(a > 5) {
+    System.out.println("A");
+}
+
+if(a > 8) {
+    System.out.println("B");
+}
+```
+
+### Output
+
+```text
+A
+B
+```
+
+Why?
+
+```text
+10 > 5 → true
+10 > 8 → true
+```
+
+Both `if` statements are independent.
+
+---
+
+Now:
+
+```java
+int a = 10;
+
+if(a > 5) {
+    System.out.println("A");
+}
+else if(a > 8) {
+    System.out.println("B");
+}
+```
+
+### Output
+
+```text
+A
+```
+
+Why?
+
+Java checks:
+
+```text
+a > 5
+```
+
+Result:
+
+```text
+10 > 5 → true
+```
+
+So it executes:
+
+```text
+A
+```
+
+Then the `else-if` is skipped.
+
+### ⭐ Important Interview Concept
+
+> In an `if-else-if` ladder, once a condition becomes true, the remaining conditions are not checked.
+
+---
+
+# 20. Decision-Making Flow
+
+You can remember Day 7 like this:
+
+```text
+                 Condition
+                     |
+          +----------+----------+
+          |                     |
+        TRUE                  FALSE
+          |                     |
+      Execute               Alternative
+      block                  block
+```
+
+Java provides different ways to implement this:
+
+```text
+if
+│
+├── if
+├── if-else
+├── if-else-if
+├── nested if
+└── switch
+```
+
+---
+
+# 21. Day 7 Practice Programs
+
+## 🟢 Level 1 — Basic
+
+1. Check whether a number is positive or negative.
+2. Check whether a number is even or odd.
+3. Check whether a person is eligible to vote.
+4. Find the largest of two numbers.
+5. Check whether a number is divisible by 5.
+
+---
+
+## 🟡 Level 2 — Intermediate
+
+1. Find the largest of three numbers.
+2. Check whether a year is a leap year.
+3. Calculate grade based on marks.
+4. Check whether a character is vowel or consonant.
+5. Check whether a number is positive, negative, or zero.
+
+---
+
+## 🔴 Level 3 — Problem Solving
+
+1. Create a simple calculator using `switch`.
+2. Create a menu-driven program.
+3. Find the largest of three numbers using nested `if`.
+4. Check eligibility based on age and citizenship.
+5. Create a student result program using `if-else-if`.
+
+---
+
+# 22. Day 7 Interview Questions
+
+### Basic Questions
+
+1. What are control statements?
+2. What is an `if` statement?
+3. What is the difference between `if` and `if-else`?
+4. What is an `if-else-if` ladder?
+5. What is nested `if`?
+6. What is the difference between multiple `if` and `if-else-if`?
+7. What is a `switch` statement?
+8. Why do we use `break` in `switch`?
+9. What is `default` in `switch`?
+10. What is fall-through in `switch`?
+11. What is the difference between `if-else` and `switch`?
+12. Can we use conditions directly as an `int` in Java `if`?
+13. Can `switch` work with `String`?
+14. What is the difference between `=` and `==`?
+15. Why does Java require a boolean expression in `if`?
+
+---
+
+# 23. Day 7 Challenge
+
+## Challenge 1 — Nested if
+
+Predict the output **before running the program**.
+
+```java
+int a = 10;
+int b = 20;
+
+if(a > 5) {
+
+    if(b > 15) {
+        System.out.println("A");
+    } else {
+        System.out.println("B");
+    }
+
+} else {
+    System.out.println("C");
+}
+```
+
+### Think Step-by-Step
+
+```text
+a > 5
+  ↓
+10 > 5 → true
+  ↓
+Check b > 15
+  ↓
+20 > 15 → true
+  ↓
+Print A
+```
+
+### Output
+
+```text
+A
+```
+
+---
+
+# 24. Day 7 Challenge 2 — if-else-if
+
+Predict the output:
+
+```java
+int marks = 85;
+
+if(marks >= 90) {
+    System.out.println("A");
+} else if(marks >= 80) {
+    System.out.println("B");
+} else if(marks >= 70) {
+    System.out.println("C");
+} else {
+    System.out.println("D");
+}
+```
+
+### Which condition is checked first?
+
+Java checks from **top to bottom**:
+
+```text
+marks >= 90
+85 >= 90 → false
+
+marks >= 80
+85 >= 80 → true
+```
+
+So:
+
+```text
+B
+```
+
+is printed.
+
+### What happens next?
+
+Java stops checking the remaining conditions.
+
+```text
+90 → false
+80 → true
+70 → NOT CHECKED
+else → NOT EXECUTED
+```
+
+---
+
+# 25. One-Minute Revision
+
+### `if`
+
+```text
+One condition
+```
+
+### `if-else`
+
+```text
+Two possible outcomes
+```
+
+### `else-if`
+
+```text
+Multiple conditions
+```
+
+### Nested `if`
+
+```text
+if inside another if
+```
+
+### Multiple `if`
+
+```text
+Each condition is checked independently
+```
+
+### `switch`
+
+```text
+Multiple fixed choices
+```
+
+### `break`
+
+```text
+Stops switch execution
+```
+
+### `default`
+
+```text
+Runs when no case matches
+```
+
+### Ternary
+
+```text
+Short form for a simple decision
+```
+
+---
+
+# 26. Most Important Interview Points
+
+Remember these:
+
+```text
+if
+→ Executes when condition is true.
+
+if-else
+→ Handles two possible outcomes.
+
+if-else-if
+→ Checks conditions from top to bottom.
+
+Nested if
+→ if inside another if.
+
+Multiple if
+→ Conditions are independent.
+
+switch
+→ Useful for fixed choices.
+
+break
+→ Terminates switch.
+
+default
+→ Executes when no case matches.
+
+=
+→ Assignment.
+
+==
+→ Comparison.
+
+Java if condition
+→ Must produce boolean true/false.
+```
+
+---
+
+# 🎯 Final Day 7 Learning Chain
+
+```text
+Operators
+     ↓
+Conditions
+     ↓
+if
+     ↓
+if-else
+     ↓
+else-if
+     ↓
+Nested if
+     ↓
+switch
+     ↓
+Decision Making
+     ↓
+Problem Solving
+```
+
+---
+
+# 📈 100 Days Java Journey
+
+```text
+Day 01 → Java Introduction
+Day 02 → JDK, JRE & JVM
+Day 03 → Java Features
+Day 04 → Program Structure & main()
+Day 05 → Variables, Data Types & Literals
+Day 06 → Operators
+Day 07 → Control Statements
+```
+
+### 🔜 Day 8 Preview
+
+**Looping Statements in Java**
+
+We will learn:
+
+* `for`
+* `while`
+* `do-while`
+* Entry-controlled vs exit-controlled loops
+* Loop flow
+* Practical problems
+
+---
+
+# 🚀 Learning Formula
+
+> **Learn → Understand → Code → Practice → Explain → Build**
