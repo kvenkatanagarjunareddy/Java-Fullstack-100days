@@ -1,0 +1,1093 @@
+Absolutely. Below is a **clean, beginner-friendly Day 8 README**, organized so you can directly copy it into your GitHub `README.md`. I’ve kept your original topics and examples, but made the explanations simpler and easier to teach.
+
+# ☕ Day 08 — Loops in Java
+
+## 🔁 Loops — Part 01
+
+### 🎯 Learning Goal
+
+By the end of Day 8, you should understand:
+
+* What is a loop?
+* Why do we use loops?
+* `while` loop
+* `do-while` loop
+* `for` loop
+* Enhanced `for` loop / `for-each`
+* Infinite loops
+* Nested loops
+* `break`
+* `continue`
+* Basic loop-based programs
+
+---
+
+# 1. 🔄 What is a Loop?
+
+A **loop** is used to execute a block of code repeatedly as long as a specified condition is satisfied.
+
+### Simple Example
+
+Suppose we want to print `"Hello"` 5 times.
+
+### ❌ Without a Loop
+
+```java
+System.out.println("Hello");
+System.out.println("Hello");
+System.out.println("Hello");
+System.out.println("Hello");
+System.out.println("Hello");
+```
+
+We have to write the same statement 5 times.
+
+### ✅ Using a Loop
+
+```java
+for(int i = 1; i <= 5; i++) {
+    System.out.println("Hello");
+}
+```
+
+The same code executes repeatedly.
+
+### 🎯 Main Purpose of Loops
+
+> **Loop = Repeat the same block of code**
+
+Loops help us:
+
+* Reduce code repetition
+* Save time
+* Make programs shorter
+* Process multiple values
+* Solve programming problems efficiently
+
+---
+
+# 2. 🔢 Types of Loops in Java
+
+Java mainly provides three types of loops:
+
+### 1. `while` loop
+
+Used when the condition needs to be checked before every iteration.
+
+### 2. `do-while` loop
+
+Used when the body should execute at least once.
+
+### 3. `for` loop
+
+Commonly used when initialization, condition, and update can be written together.
+
+### 4. Enhanced `for` loop
+
+Also called **for-each loop**.
+
+Mainly used to iterate through arrays and collections.
+
+---
+
+# 3. 🔁 while Loop
+
+A `while` loop repeatedly executes a block of code **as long as the condition is true**.
+
+### Syntax
+
+```java
+while(condition) {
+    // statements
+}
+```
+
+### Example
+
+```java
+int i = 1;
+
+while(i <= 5) {
+
+    System.out.println(i);
+
+    i++;
+}
+```
+
+### Output
+
+```text
+1
+2
+3
+4
+5
+```
+
+### How does it work?
+
+```text
+i = 1
+  ↓
+Check condition
+  ↓
+i <= 5 ?
+  ↓
+YES
+  ↓
+Print i
+  ↓
+i++
+  ↓
+Check condition again
+  ↓
+...
+  ↓
+Condition becomes false
+  ↓
+Exit
+```
+
+---
+
+# 4. 🧠 Important Point — while Loop
+
+In a `while` loop, the condition is checked **before** executing the loop body.
+
+Therefore, `while` is called an:
+
+> **Entry-Controlled Loop**
+
+### Memory Trick
+
+```text
+while → Check → Execute
+```
+
+---
+
+# 5. 🔢 while Loop Examples
+
+## Example 1 — Print 1 to 10
+
+```java
+int i = 1;
+
+while(i <= 10) {
+    System.out.println(i);
+    i++;
+}
+```
+
+Output:
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+---
+
+## Example 2 — Print Even Numbers
+
+```java
+int i = 2;
+
+while(i <= 10) {
+    System.out.println(i);
+    i = i + 2;
+}
+```
+
+Output:
+
+```text
+2
+4
+6
+8
+10
+```
+
+---
+
+# 6. ⚠️ What Happens If We Don't Update the Variable?
+
+Consider:
+
+```java
+int i = 1;
+
+while(i <= 5) {
+    System.out.println(i);
+}
+```
+
+Here, `i` is always `1`.
+
+We never write:
+
+```java
+i++;
+```
+
+Therefore, the condition:
+
+```java
+i <= 5
+```
+
+always remains `true`.
+
+The program keeps printing:
+
+```text
+1
+1
+1
+1
+1
+...
+```
+
+This is called an:
+
+> **Infinite Loop**
+
+### Important Rule
+
+When using a loop, make sure the loop condition can eventually become `false`.
+
+---
+
+# 7. 🔄 do-while Loop
+
+A `do-while` loop executes the body **first** and checks the condition **afterward**.
+
+### Syntax
+
+```java
+do {
+    // statements
+} while(condition);
+```
+
+### Example
+
+```java
+int i = 1;
+
+do {
+    System.out.println(i);
+    i++;
+} while(i <= 5);
+```
+
+### Output
+
+```text
+1
+2
+3
+4
+5
+```
+
+---
+
+# 8. ⭐ Important Feature of do-while
+
+The body of a `do-while` loop executes **at least once**, even if the condition is false.
+
+### Example
+
+```java
+int i = 10;
+
+do {
+    System.out.println(i);
+} while(i < 5);
+```
+
+### Output
+
+```text
+10
+```
+
+### Why?
+
+First Java executes:
+
+```java
+System.out.println(i);
+```
+
+So `10` is printed.
+
+Then Java checks:
+
+```java
+i < 5
+```
+
+Which is:
+
+```text
+10 < 5 → false
+```
+
+Therefore, the loop stops.
+
+### Easy Memory Trick
+
+```text
+do-while → Execute → Check
+```
+
+---
+
+# 9. 🆚 while vs do-while
+
+| while                   | do-while                     |
+| ----------------------- | ---------------------------- |
+| Condition checked first | Condition checked after body |
+| May execute zero times  | Executes at least once       |
+| Entry-controlled        | Exit-controlled              |
+| `while(condition)`      | `do { } while(condition);`   |
+
+### Easy Memory Trick
+
+```text
+while     → Check → Execute
+
+do-while  → Execute → Check
+```
+
+---
+
+# 10. 🔁 for Loop
+
+The `for` loop is commonly used when initialization, condition, and update can conveniently be written together.
+
+### Syntax
+
+```java
+for(initialization; condition; update) {
+    // statements
+}
+```
+
+### Example
+
+```java
+for(int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}
+```
+
+### Output
+
+```text
+1
+2
+3
+4
+5
+```
+
+---
+
+# 11. 🧩 Parts of a for Loop
+
+Consider:
+
+```java
+for(int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}
+```
+
+There are three important parts.
+
+### 1️⃣ Initialization
+
+```java
+int i = 1
+```
+
+Executed **only once** at the beginning.
+
+### 2️⃣ Condition
+
+```java
+i <= 5
+```
+
+Checked before every iteration.
+
+### 3️⃣ Update
+
+```java
+i++
+```
+
+Executed after every iteration.
+
+### Execution Flow
+
+```text
+Initialization
+      ↓
+Condition
+      ↓
+  true?
+   ↓
+ Body
+   ↓
+Update
+   ↓
+Condition
+   ↓
+  true?
+   ↓
+ Body
+   ↓
+Update
+   ↓
+ ...
+   ↓
+false
+   ↓
+Exit
+```
+
+### Easy Memory Trick
+
+```text
+for → Initialize → Check → Execute → Update
+```
+
+---
+
+# 12. 🔢 for Loop — Print 1 to 10
+
+```java
+for(int i = 1; i <= 10; i++) {
+    System.out.println(i);
+}
+```
+
+Output:
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+---
+
+# 13. 🔢 Print 10 to 1
+
+```java
+for(int i = 10; i >= 1; i--) {
+    System.out.println(i);
+}
+```
+
+Output:
+
+```text
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+```
+
+---
+
+# 14. 🔢 Print Even Numbers
+
+### Approach 1
+
+```java
+for(int i = 2; i <= 10; i = i + 2) {
+    System.out.println(i);
+}
+```
+
+Output:
+
+```text
+2
+4
+6
+8
+10
+```
+
+### Approach 2 — Using `%`
+
+```java
+for(int i = 1; i <= 10; i++) {
+
+    if(i % 2 == 0) {
+        System.out.println(i);
+    }
+}
+```
+
+Here:
+
+```text
+% → remainder
+```
+
+If the remainder is `0`, the number is even.
+
+---
+
+# 15. ➕ Sum of First 10 Numbers
+
+We can use a loop to calculate:
+
+```text
+1 + 2 + 3 + ... + 10
+```
+
+### Program
+
+```java
+int sum = 0;
+
+for(int i = 1; i <= 10; i++) {
+    sum = sum + i;
+}
+
+System.out.println(sum);
+```
+
+### Output
+
+```text
+55
+```
+
+### Logic
+
+```text
+sum = 0
+
+i = 1 → sum = 1
+i = 2 → sum = 3
+i = 3 → sum = 6
+i = 4 → sum = 10
+...
+i = 10 → sum = 55
+```
+
+### Important Concept
+
+```java
+sum = sum + i;
+```
+
+means:
+
+> Take the existing `sum`, add `i`, and store the result back in `sum`.
+
+---
+
+# 16. ♾️ Infinite for Loop
+
+We can create an infinite `for` loop using:
+
+```java
+for(;;) {
+    System.out.println("Hello");
+}
+```
+
+There is no condition that becomes false.
+
+Therefore, it continues indefinitely unless something stops it.
+
+Another example:
+
+```java
+for(int i = 1; i <= 10; ) {
+    System.out.println(i);
+}
+```
+
+Here `i` is never updated.
+
+Therefore:
+
+```text
+i = 1
+i <= 10 → true
+```
+
+continues forever.
+
+---
+
+# 17. 🔁 Nested Loop
+
+A **loop inside another loop** is called a **Nested Loop**.
+
+### Example
+
+```java
+for(int i = 1; i <= 3; i++) {
+
+    for(int j = 1; j <= 3; j++) {
+
+        System.out.println(i + " " + j);
+    }
+}
+```
+
+### Output
+
+```text
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+```
+
+### How does it work?
+
+For every one execution of the outer loop, the inner loop executes completely.
+
+```text
+i = 1
+    j = 1
+    j = 2
+    j = 3
+
+i = 2
+    j = 1
+    j = 2
+    j = 3
+
+i = 3
+    j = 1
+    j = 2
+    j = 3
+```
+
+Total inner-loop executions:
+
+```text
+3 × 3 = 9
+```
+
+### Where are Nested Loops Used?
+
+Nested loops are very important for:
+
+* Pattern programs
+* 2D arrays
+* Matrix problems
+* DSA problems
+
+---
+
+# 18. 🔢 Enhanced for Loop / for-each
+
+The **enhanced for loop** is also called the **for-each loop**.
+
+It is mainly used to iterate through:
+
+* Arrays
+* Collections
+
+### Example
+
+```java
+int[] numbers = {10, 20, 30, 40, 50};
+
+for(int number : numbers) {
+    System.out.println(number);
+}
+```
+
+### Output
+
+```text
+10
+20
+30
+40
+50
+```
+
+### Syntax
+
+```java
+for(dataType variable : arrayOrCollection) {
+    // statements
+}
+```
+
+Here:
+
+```java
+number
+```
+
+gets each value from:
+
+```java
+numbers
+```
+
+one by one.
+
+---
+
+# 19. 🆚 Normal for vs Enhanced for
+
+Consider this array:
+
+```java
+int[] a = {10, 20, 30};
+```
+
+### Normal for
+
+```java
+for(int i = 0; i < a.length; i++) {
+    System.out.println(a[i]);
+}
+```
+
+Here we have access to the **index**.
+
+### Enhanced for
+
+```java
+for(int value : a) {
+    System.out.println(value);
+}
+```
+
+Here we directly get the **value**.
+
+### Easy Difference
+
+```text
+Normal for
+→ Index + Value
+
+Enhanced for
+→ Direct Value
+```
+
+Use a normal `for` when you need the index. Use enhanced `for` when you simply need each value.
+
+---
+
+# 20. 🛑 break Statement
+
+The `break` statement is used to **terminate the loop immediately**.
+
+### Example
+
+```java
+for(int i = 1; i <= 10; i++) {
+
+    if(i == 5) {
+        break;
+    }
+
+    System.out.println(i);
+}
+```
+
+### Output
+
+```text
+1
+2
+3
+4
+```
+
+When:
+
+```java
+i == 5
+```
+
+becomes true, `break` terminates the loop.
+
+### Remember
+
+```text
+break → STOP the loop
+```
+
+---
+
+# 21. ⏭️ continue Statement
+
+The `continue` statement skips the **current iteration** and moves to the next iteration.
+
+### Example
+
+```java
+for(int i = 1; i <= 5; i++) {
+
+    if(i == 3) {
+        continue;
+    }
+
+    System.out.println(i);
+}
+```
+
+### Output
+
+```text
+1
+2
+4
+5
+```
+
+When `i == 3`, the current iteration is skipped.
+
+### Remember
+
+```text
+continue → SKIP current iteration
+```
+
+---
+
+# 22. 🆚 break vs continue
+
+| `break`                        | `continue`                          |
+| ------------------------------ | ----------------------------------- |
+| Terminates the loop            | Skips current iteration             |
+| Loop stops completely          | Loop continues                      |
+| Control comes outside the loop | Control moves to the next iteration |
+| `break` = STOP                 | `continue` = SKIP                   |
+
+### Easy Memory Trick
+
+```text
+break    → STOP 🛑
+
+continue → SKIP ⏭️
+```
+
+---
+
+# 23. 🧠 Important Interview Questions
+
+### Basic Questions
+
+1. What is a loop?
+2. Why do we use loops?
+3. What are the types of loops in Java?
+4. What is a `while` loop?
+5. What is a `do-while` loop?
+6. What is a `for` loop?
+7. What is an enhanced `for` loop?
+8. What is an infinite loop?
+9. What is a nested loop?
+
+### Important Questions
+
+10. Why is `while` called an entry-controlled loop?
+11. Why is `do-while` called an exit-controlled loop?
+12. What is the difference between `while` and `do-while`?
+13. What is the difference between `for` and `while`?
+14. Why does `do-while` execute at least once?
+15. What happens if we don't update the loop variable?
+16. What is the difference between `break` and `continue`?
+17. Can `break` be used inside nested loops?
+18. What is a for-each loop?
+19. What is the difference between normal `for` and enhanced `for`?
+20. How many times does the inner loop execute in a nested loop?
+
+---
+
+# 24. 💻 Day 8 Practice Programs
+
+Practice these programs using loops.
+
+### Level 1 — Basic
+
+1. Print numbers from 1 to 10
+2. Print numbers from 10 to 1
+3. Print even numbers from 1 to 100
+4. Print odd numbers from 1 to 100
+5. Find the sum of 1 to N
+6. Find factorial of a number
+7. Print multiplication table
+
+### Level 2 — Number Problems
+
+8. Count digits in a number
+9. Reverse a number
+10. Check palindrome number
+11. Check prime number
+12. Print prime numbers from 1 to 100
+13. Find sum of digits
+14. Find the largest digit in a number
+
+### Level 3 — Nested Loop
+
+15. Print the following pattern:
+
+```text
+*
+**
+***
+****
+*****
+```
+
+---
+
+# 25. 🎯 Day 8 Core Concept
+
+Remember these points:
+
+```text
+Loop
+  ↓
+Repetition
+```
+
+```text
+while
+→ Check first → Execute
+```
+
+```text
+do-while
+→ Execute first → Check
+```
+
+```text
+for
+→ Initialization → Condition → Body → Update
+```
+
+```text
+for-each
+→ Directly iterate values
+```
+
+```text
+break
+→ STOP
+```
+
+```text
+continue
+→ SKIP
+```
+
+```text
+nested loop
+→ Loop inside another loop
+```
+
+---
+
+# 🧠 One-Minute Revision
+
+| Concept       | Easy Meaning                          |
+| ------------- | ------------------------------------- |
+| Loop          | Repeat code                           |
+| `while`       | Check → Execute                       |
+| `do-while`    | Execute → Check                       |
+| `for`         | Initialize → Check → Execute → Update |
+| `for-each`    | Directly access values                |
+| Infinite loop | Condition never becomes false         |
+| Nested loop   | Loop inside another loop              |
+| `break`       | Stop loop                             |
+| `continue`    | Skip current iteration                |
+
+---
+
+# 🚀 Learning Chain
+
+```text
+Variables
+    ↓
+Operators
+    ↓
+Conditions
+    ↓
+Control Statements
+    ↓
+Loops
+    ↓
+Problem Solving
+    ↓
+DSA
+```
+
+---
+
+# 📈 100 Days Java Journey
+
+```text
+Day 01 → Java Introduction
+Day 02 → JDK, JRE & JVM
+Day 03 → Java Features
+Day 04 → Program Structure
+Day 05 → Variables, Data Types & Literals
+Day 06 → Operators
+Day 07 → Control Statements
+Day 08 → Loops
+```
+
+### 🔜 Day 9 Preview
+
+**Pattern Programs in Java ⭐**
+
+---
+
+## ☕ Learning Formula
+
+> **Learn → Understand → Code → Practice → Explain → Build**
+
+
